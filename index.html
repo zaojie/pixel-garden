@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>雨庭 · Ink Studio 高斯泼溅</title>
+  <link rel="stylesheet" href="style.css">
+<style>#scene{height:calc(100% - 130px);margin-top:130px}.intro p{max-width:190px;line-height:1.9}input:disabled{opacity:.35;cursor:not-allowed}@media(max-width:650px){#scene{height:calc(100% - 155px);margin-top:155px}}#loading{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:14px 24px;background:#263c35;color:#e9e9de;border:1px solid #ffffff26;z-index:5}#loading[hidden]{display:none}.version-link{color:#e8a882;font-size:10px;text-decoration:none}</style></head>
+<body>
+  <header><a class="brand" href="./" aria-label="雨庭首页"><span class="brand-mark">▧</span> 微境 <span class="brand-en">MICROSCAPES</span></a><div class="edition">EXPERIMENT 002 <span> / </span> INK STUDIO / WEBGL 2</div><span class="live"><i></i> 原生高斯渲染</span></header>
+  <main>
+    <section class="intro"><div class="eyebrow">SDF → GAUSSIAN SPLATS → PIXEL ART</div><h1>雨庭<span>An ink world.</span></h1><p>同一座庭院，用高斯笔触重新描绘。</p></section>
+    <section class="viewport" aria-label="可交互的三维像素庭院">
+      <canvas id="scene" tabindex="0" aria-label="三维雨夜庭院，拖动或使用方向键旋转，滚轮缩放"></canvas>
+      <div class="scene-tag"><span class="tag-line"></span> 01 — 山间神社 <small>THE LANTERN GARDEN</small></div>
+      <div class="compass" aria-hidden="true"><span>N</span><div id="needle">↗</div></div>
+      <div class="hint"><span>↔</span> 拖动旋转 <b>·</b> 滚轮缩放 <b>·</b> 方向键探索</div>
+      <div class="scene-stats"><span id="point-count">—</span> SPLATS <i></i> INK STUDIO</div>
+    </section>
+    <aside>
+      <div class="panel-heading"><span>场景控制</span><small>INK STUDIO</small></div>
+      <div class="control"><label for="pixel">像素颗粒 <output id="pixel-value">3 px</output></label><input id="pixel" type="range" min="1" max="6" value="3"><div class="range-labels"><span>细腻</span><span>复古</span></div></div>
+      <div class="control"><label for="light">抖动强度 <output id="light-value">20%</output></label><input id="light" type="range" min="0" max="100" value="20"></div>
+      <div class="control atmosphere"><span>渲染方式</span><div class="segmented"><button id="pixel-mode" class="selected" aria-pressed="true">像素风</button><button id="raw-mode" aria-pressed="false">原始高斯</button></div></div>
+      <button id="rotate" class="row-button" aria-pressed="true"><span><i class="orbit-icon">↻</i> 自动环绕</span><span class="toggle"></span></button>
+      <button id="pause" class="row-button" aria-pressed="false"><span><i>Ⅱ</i> 暂停时间</span><span class="toggle"></span></button>
+      <button id="reset" class="reset">↺ <span>回到初始视角</span></button>
+      <div class="note"><span class="note-dot"></span><p>真实 SDF 表面烘焙，<br>由 Ink Studio 原生渲染。</p></div>
+    </aside>
+  </main>
+  <footer><div><span class="footer-label">THE PROCESS</span><span>SDF 雕刻 <b>→</b> 高斯点烘焙 <b>→</b> 像素后处理</span></div><span class="footer-right"><a class="version-link" href="./prototype.html">查看上一版 ↗</a> <span>✳</span></span></footer>
+  <div id="loading" role="status">正在加载 Ink Studio 庭院…</div>
+  <script type="module" src="ink-view.mjs"></script>
+</body>
+</html>

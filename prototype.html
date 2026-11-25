@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>雨庭 · Pixel Garden</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header><a class="brand" href="./" aria-label="雨庭首页"><span class="brand-mark">▧</span> 微境 <span class="brand-en">MICROSCAPES</span></a><div class="edition">EXPERIMENT 001 <span> / </span> PROCEDURAL WORLDS</div><span class="live"><i></i> 实时生成</span></header>
+  <main>
+    <section class="intro"><div class="eyebrow">A LITTLE WORLD, MADE OF POINTS</div><h1>雨庭<span>After the rain.</span></h1><p>把一个安静的夜晚，藏进像素之间。</p></section>
+    <section class="viewport" aria-label="可交互的三维像素庭院">
+      <canvas id="scene" tabindex="0" aria-label="三维雨夜庭院，拖动或使用方向键旋转，滚轮缩放"></canvas>
+      <div class="scene-tag"><span class="tag-line"></span> 01 — 山间神社 <small>THE LANTERN GARDEN</small></div>
+      <div class="compass" aria-hidden="true"><span>N</span><div id="needle">↗</div></div>
+      <div class="hint"><span>↔</span> 拖动旋转 <b>·</b> 滚轮缩放 <b>·</b> 方向键探索</div>
+      <div class="scene-stats"><span id="point-count">—</span> POINTS <i></i> REALTIME 3D</div>
+    </section>
+    <aside>
+      <div class="panel-heading"><span>场景控制</span><small>MAKE IT YOURS</small></div>
+      <div class="control"><label for="pixel">像素颗粒 <output id="pixel-value">3 px</output></label><input id="pixel" type="range" min="1" max="6" value="3"><div class="range-labels"><span>细腻</span><span>复古</span></div></div>
+      <div class="control"><label for="light">灯火亮度 <output id="light-value">80%</output></label><input id="light" type="range" min="20" max="100" value="80"></div>
+      <div class="control atmosphere"><span>庭院气候</span><div class="segmented"><button id="rain" class="selected" aria-pressed="true">细雨</button><button id="clear" aria-pressed="false">晴夜</button></div></div>
+      <button id="rotate" class="row-button" aria-pressed="true"><span><i class="orbit-icon">↻</i> 自动环绕</span><span class="toggle"></span></button>
+      <button id="pause" class="row-button" aria-pressed="false"><span><i>Ⅱ</i> 暂停时间</span><span class="toggle"></span></button>
+      <button id="reset" class="reset">↺ <span>回到初始视角</span></button>
+      <div class="note"><span class="note-dot"></span><p>每一片花瓣，每一盏灯火，<br>都是三维空间里的一点。</p></div>
+    </aside>
+  </main>
+  <footer><div><span class="footer-label">THE PROCESS</span><span>程序造型 <b>→</b> 表面点采样 <b>→</b> 像素渲染</span></div><span class="footer-right">小小世界，自有天地。 <span>✳</span></span></footer>
+  <script type="module" src="scene.js"></script>
+</body>
+</html>
